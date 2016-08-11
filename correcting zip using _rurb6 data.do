@@ -189,8 +189,14 @@ replace zip_rec="68305" if zip_rec=="" & nacchoid=="NE012"
 replace zip_rec="07961" if zip_rec=="" & nacchoid=="NJ004"
 replace zip_rec="07675" if zip_rec=="" & nacchoid=="NJ024"
 
+replace zip_rec="07013" if zip_rec=="" & nacchoid=="NJ014"
+replace zip_rec="65775" if zip_rec=="" & nacchoid=="MO130"
+replace zip_rec="94403" if zip_rec=="" & nacchoid=="CA044"
+
 bysort yearsurvey: count if zip_rec==""
 
 bysort yearsurvey: count if zip_rec=="" & survresp!=.
+
+bysort yearsurvey: count if zip_rec=="" & survresp==1
 
 save "X:\xDATA\NLSPHS 2014\Analysis\AnalyticalFiles\data\NLSPHSNACCHOARFAll4Waves_wts_peer_rurb7.dta", replace
